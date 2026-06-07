@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="author" content="UO277488" >
+    <meta name="description" content="Meteorología de Santa Cruz de Tenerife" >
+    <meta name="keywords" content="Tenerife, meteorología, clima, tiempo" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta property="og:title" content="Meteorología - Santa Cruz de Tenerife" >
+    <meta property="og:description" content="Meteorología de Santa Cruz de Tenerife" >
+    <meta property="og:type" content="website" >
+    <meta name="twitter:card" content="summary" >
+    <title>Meteorología - Santa Cruz de Tenerife</title>
+    <link rel="icon" href="multimedia/favicon.svg" type="image/svg+xml" >
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" >
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" >
+    <link rel="stylesheet" type="text/css" href="estilo/print.css" media="print" >
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="js/ciudad.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html" title="Volver a la página principal">Santa Cruz de Tenerife</a></h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="gastronomia.html">Gastronomía</a>
+            <a href="rutas.html">Rutas</a>
+            <a href="meteorologia.html" class="activo" aria-current="page">Meteorología</a>
+            <a href="juego.html">Juego</a>
+            <a href="reservas.php">Reservas</a>
+            <a href="ayuda.html">Ayuda</a>
+        </nav>
+    </header>
+    <main>
+        <noscript><p>Esta página requiere JavaScript para mostrar los datos meteorológicos. Actívalo en tu navegador.</p></noscript>
+        <p><a href="index.html">Inicio</a> <strong>&gt;</strong> Meteorología</p>
+        <section>
+            <h2>Meteorología de Santa Cruz de Tenerife</h2>
+            <div data-role="meteorologia" id="meteo-info"></div>
+            <div data-role="meteorologia" id="meteo-prevision"></div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 UO277488 - Software y Estándares para la Web</p>
+        <address>Contacto: <a href="mailto:uo277488@uniovi.es">uo277488@uniovi.es</a></address>
+    </footer>
+</body>
+</html>

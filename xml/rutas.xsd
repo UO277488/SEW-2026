@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.uniovi.es"
+    xmlns="http://www.uniovi.es"
+    elementFormDefault="qualified">
+
+    <xs:simpleType name="longitudeType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="-180"/>
+            <xs:maxInclusive value="180"/>
+            <xs:fractionDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="latitudeType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="-90"/>
+            <xs:maxInclusive value="90"/>
+            <xs:fractionDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="altitudeType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="10000"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="rutas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ruta" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="nombreRuta" type="xs:string"/>
+                            <xs:element name="tipoRuta" type="xs:string"/>
+                            <xs:element name="medioTransporte" type="xs:string"/>
+                            <xs:element name="fechaInicio" type="xs:date" minOccurs="0"/>
+                            <xs:element name="horaInicio" type="xs:time" minOccurs="0"/>
+                            <xs:element name="agencia" type="xs:string"/>
+                            <xs:element name="descripcion" type="xs:string"/>
+                            <xs:element name="personas" type="xs:string"/>
+                            <xs:element name="duracion" type="xs:string"/>
+                            <xs:element name="lugarInicio" type="xs:string"/>
+                            <xs:element name="direccionInicio" type="xs:string"/>
+                            <xs:element name="coordenadas">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="longitud" type="longitudeType"/>
+                                        <xs:element name="latitud" type="latitudeType"/>
+                                        <xs:element name="altitud" type="altitudeType"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="referencias">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="referencia" type="xs:string" minOccurs="3" maxOccurs="10"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="recomendacion" type="xs:integer"/>
+                            <xs:element name="hitos">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="hito" minOccurs="5" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="nombreHito" type="xs:string"/>
+                                                    <xs:element name="descripcionHito" type="xs:string"/>
+                                                    <xs:element name="coordenadasHito">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="longitud" type="longitudeType"/>
+                                                                <xs:element name="latitud" type="latitudeType"/>
+                                                                <xs:element name="altitud" type="altitudeType"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="distancia">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:decimal">
+                                                                    <xs:attribute name="unidad" type="xs:string" fixed="metros"/>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="galeriaFotos">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="foto" minOccurs="1" maxOccurs="5">
+                                                                    <xs:complexType>
+                                                                        <xs:simpleContent>
+                                                                            <xs:extension base="xs:string">
+                                                                                <xs:attribute name="src" type="xs:string" use="required"/>
+                                                                            </xs:extension>
+                                                                        </xs:simpleContent>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="galeriaVideos" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="video" minOccurs="0" maxOccurs="3">
+                                                                    <xs:complexType>
+                                                                        <xs:simpleContent>
+                                                                            <xs:extension base="xs:string">
+                                                                                <xs:attribute name="src" type="xs:string" use="required"/>
+                                                                            </xs:extension>
+                                                                        </xs:simpleContent>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="planimetria" type="xs:string"/>
+                            <xs:element name="altimetria" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

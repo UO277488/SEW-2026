@@ -1,0 +1,50 @@
+/* Especificidad: 001 */
+header,
+nav,
+footer,
+[data-role="carrusel"],
+[data-role="noticias"],
+[data-role="meteorologia"],
+[data-role="mapa-ruta"],
+form,
+video,
+audio,
+picture,
+[data-role="resultado-juego"] {
+    display: none;
+}
+
+/* Especificidad: 001 */
+body {
+    font-family: serif;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 1em;
+}
+
+/* Especificidad: 001 */
+h1,
+h2,
+h3 {
+    color: #000000;
+    background-color: transparent;
+}
+
+/* Especificidad: 001 */
+a {
+    color: #000000;
+    text-decoration: underline;
+}
+
+/* Especificidad: 001 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Especificidad: 001 */
+th,
+td {
+    border: 0.05em solid #000000;
+    padding: 0.3em;
+}

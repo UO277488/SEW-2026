@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="author" content="UO277488" >
+    <meta name="description" content="Portal turístico de la provincia de Santa Cruz de Tenerife" >
+    <meta name="keywords" content="Tenerife, turismo, rutas, gastronomía, provincia" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta property="og:title" content="Santa Cruz de Tenerife - Turismo" >
+    <meta property="og:description" content="Portal turístico de la provincia de Santa Cruz de Tenerife" >
+    <meta property="og:type" content="website" >
+    <meta property="og:image" content="multimedia/mapa_santacruz.jpg" >
+    <meta name="twitter:card" content="summary" >
+    <title>Santa Cruz de Tenerife - Turismo</title>
+    <link rel="icon" href="multimedia/favicon.svg" type="image/svg+xml" >
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" >
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" >
+    <link rel="stylesheet" type="text/css" href="estilo/print.css" media="print" >
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="js/carrusel.js" defer></script>
+    <script src="js/noticias.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html" title="Volver a la página principal">Santa Cruz de Tenerife</a></h1>
+        <nav>
+            <a href="index.html" class="activo" aria-current="page">Inicio</a>
+            <a href="gastronomia.html">Gastronomía</a>
+            <a href="rutas.html">Rutas</a>
+            <a href="meteorologia.html">Meteorología</a>
+            <a href="juego.html">Juego</a>
+            <a href="reservas.php">Reservas</a>
+            <a href="ayuda.html">Ayuda</a>
+        </nav>
+    </header>
+    <main>
+        <noscript><p>Esta página requiere JavaScript para su funcionamiento completo. Actívalo en tu navegador.</p></noscript>
+        <section>
+            <h2>Bienvenido a Santa Cruz de Tenerife</h2>
+            <p>Descubre los recursos turísticos de la provincia de Santa Cruz de Tenerife, un paraíso en el océano Atlántico con paisajes volcánicos, playas de arena negra, bosques de laurisilva y una gastronomía única.</p>
+        </section>
+        <section>
+            <h2>Galería de recursos turísticos</h2>
+            <figure>
+                <div data-role="carrusel" id="carrusel">
+                    <button type="button" id="anterior" aria-label="Ver fotografía anterior">&#9664;</button>
+                    <img id="imagen-carrusel" src="multimedia/mapa_santacruz.jpg" alt="Galería turística de Santa Cruz de Tenerife" loading="lazy" decoding="async" >
+                    <button type="button" id="siguiente" aria-label="Ver fotografía siguiente">&#9654;</button>
+                </div>
+                <figcaption>Galería de recursos turísticos de la provincia</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h2>Noticias sobre Tenerife</h2>
+            <div data-role="noticias" id="noticias">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 UO277488 - Software y Estándares para la Web</p>
+        <address>Contacto: <a href="mailto:uo277488@uniovi.es">uo277488@uniovi.es</a></address>
+    </footer>
+</body>
+</html>

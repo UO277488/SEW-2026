@@ -1,0 +1,35 @@
+<!ELEMENT rutas (ruta+)>
+<!ELEMENT ruta (nombreRuta, tipoRuta, medioTransporte, fechaInicio?, horaInicio?, agencia, descripcion, personas, duracion, lugarInicio, direccionInicio, coordenadas, referencias, recomendacion, hitos, planimetria, altimetria)>
+<!ELEMENT nombreRuta (#PCDATA)>
+<!ELEMENT tipoRuta (#PCDATA)>
+<!ELEMENT medioTransporte (#PCDATA)>
+<!ELEMENT fechaInicio (#PCDATA)>
+<!ELEMENT horaInicio (#PCDATA)>
+<!ELEMENT agencia (#PCDATA)>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT personas (#PCDATA)>
+<!ELEMENT duracion (#PCDATA)>
+<!ELEMENT lugarInicio (#PCDATA)>
+<!ELEMENT direccionInicio (#PCDATA)>
+<!ELEMENT coordenadas (longitud, latitud, altitud)>
+<!ELEMENT longitud (#PCDATA)>
+<!ELEMENT latitud (#PCDATA)>
+<!ELEMENT altitud (#PCDATA)>
+<!ELEMENT referencias (referencia+)>
+<!ELEMENT referencia (#PCDATA)>
+<!ELEMENT recomendacion (#PCDATA)>
+<!ELEMENT hitos (hito+)>
+<!ELEMENT hito (nombreHito, descripcionHito, coordenadasHito, distancia, galeriaFotos, galeriaVideos?)>
+<!ELEMENT nombreHito (#PCDATA)>
+<!ELEMENT descripcionHito (#PCDATA)>
+<!ELEMENT coordenadasHito (longitud, latitud, altitud)>
+<!ELEMENT distancia (#PCDATA)>
+<!ATTLIST distancia unidad CDATA #FIXED "metros">
+<!ELEMENT galeriaFotos (foto+)>
+<!ELEMENT foto (#PCDATA)>
+<!ATTLIST foto src CDATA #REQUIRED>
+<!ELEMENT galeriaVideos (video*)>
+<!ELEMENT video (#PCDATA)>
+<!ATTLIST video src CDATA #REQUIRED>
+<!ELEMENT planimetria (#PCDATA)>
+<!ELEMENT altimetria (#PCDATA)>

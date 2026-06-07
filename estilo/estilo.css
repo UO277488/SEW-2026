@@ -1,0 +1,330 @@
+/* Especificidad: 001 */
+:root {
+    --color-primario: #8f0b0b;
+    --color-secundario: #ebe7d0;
+    --color-texto: #121110;
+    --color-hover: #5f0707;
+    --color-activo: #fff3b0;
+    --color-borde: #767676;
+    --color-exito: #245c24;
+}
+
+/* Especificidad: 001 */
+body {
+    font-family: Verdana, sans-serif;
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+}
+
+/* Especificidad: 001 */
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
+/* Especificidad: 002 */
+h1 a {
+    color: var(--color-secundario);
+    background-color: var(--color-primario);
+    text-decoration: none;
+}
+
+/* Especificidad: 001 */
+h2 {
+    color: var(--color-primario);
+    background-color: var(--color-secundario);
+}
+
+/* Especificidad: 010 */
+.activo {
+    color: var(--color-activo);
+    background-color: var(--color-primario);
+    font-weight: bold;
+}
+
+/* Especificidad: 001 */
+header {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+}
+
+/* Especificidad: 002 */
+header a {
+    color: var(--color-secundario);
+    background-color: var(--color-primario);
+    text-decoration: none;
+}
+
+/* Especificidad: 002 */
+nav a {
+    color: var(--color-secundario);
+    background-color: var(--color-primario);
+    text-decoration: none;
+}
+
+/* Especificidad: 012 */
+nav a:hover {
+    color: #ffffff;
+    background-color: var(--color-hover);
+}
+
+/* Especificidad: 012 */
+nav a:focus {
+    color: #ffffff;
+    background-color: var(--color-hover);
+    outline: 0.2em solid var(--color-activo);
+}
+
+/* Especificidad: 012 */
+main > p:first-of-type {
+    font-size: 0.85em;
+    color: var(--color-primario);
+    background-color: var(--color-secundario);
+}
+
+/* Especificidad: 013 */
+main > p:first-of-type strong {
+    color: var(--color-texto);
+    background-color: var(--color-secundario);
+}
+
+/* Especificidad: 013 */
+main > p:first-of-type a {
+    color: var(--color-texto);
+    background-color: var(--color-secundario);
+}
+
+/* Especificidad: 001 */
+footer {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    text-align: center;
+}
+
+/* Especificidad: 001 */
+table {
+    border-collapse: collapse;
+}
+
+/* Especificidad: 001 */
+caption {
+    font-weight: bold;
+}
+
+/* Especificidad: 001 */
+th,
+td {
+    border: 0.1em solid var(--color-texto);
+    padding: 0.5em;
+    text-align: left;
+}
+
+/* Especificidad: 001 */
+th {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+}
+
+/* Especificidad: 001 */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Especificidad: 001 */
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Especificidad: 001 */
+audio {
+    max-width: 100%;
+}
+
+/* Especificidad: 010 */
+[data-role="carrusel"] {
+    position: relative;
+    text-align: center;
+}
+
+/* Especificidad: 011 */
+[data-role="carrusel"] img {
+    max-height: 25em;
+    border-radius: 0.5em;
+}
+
+/* Especificidad: 011 */
+[data-role="carrusel"] button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+/* Especificidad: 021 */
+[data-role="carrusel"] button:first-of-type {
+    left: 1em;
+}
+
+/* Especificidad: 021 */
+[data-role="carrusel"] button:last-of-type {
+    right: 1em;
+}
+
+/* Especificidad: 011 */
+[data-role="noticias"] article {
+    border: 0.1em solid var(--color-borde);
+    padding: 0.5em;
+    margin: 0.5em 0;
+}
+
+/* Especificidad: 012 */
+[data-role="noticias"] article h3 {
+    margin: 0 0 0.3em 0;
+}
+
+/* Especificidad: 012 */
+[data-role="noticias"] article a {
+    color: var(--color-primario);
+    background-color: var(--color-secundario);
+}
+
+/* Especificidad: 010 */
+[data-role="meteorologia"] {
+    margin: 1em 0;
+}
+
+/* Especificidad: 011 */
+[data-role="meteorologia"] p {
+    margin: 0.3em 0;
+}
+
+/* Especificidad: 002 */
+form article {
+    margin: 1.5em 0;
+    padding: 1em;
+    border: 0.1em solid var(--color-borde);
+}
+
+/* Especificidad: 003 */
+form article p {
+    font-weight: bold;
+}
+
+/* Especificidad: 003 */
+form article label {
+    display: block;
+    margin: 0.3em 0;
+}
+
+/* Especificidad: 010 */
+[data-role="resultado-juego"] {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 2em;
+}
+
+/* Especificidad: 010 */
+[data-role="form-reserva"] {
+    max-width: 37.5em;
+    margin: 1em auto;
+}
+
+/* Especificidad: 011 */
+[data-role="form-reserva"] label {
+    display: block;
+    margin: 0.5em 0 0.2em 0;
+}
+
+/* Especificidad: 011 */
+[data-role="form-reserva"] input,
+[data-role="form-reserva"] select,
+[data-role="form-reserva"] textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border: 0.1em solid var(--color-borde);
+}
+
+/* Especificidad: 021 */
+[data-role="form-reserva"] input[type="submit"],
+[data-role="form-reserva"] input[type="reset"] {
+    width: auto;
+    padding: 0.5em 2em;
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    border: none;
+    cursor: pointer;
+}
+
+/* Especificidad: 031 */
+[data-role="form-reserva"] input[type="submit"]:hover,
+[data-role="form-reserva"] input[type="reset"]:hover {
+    background-color: var(--color-hover);
+    color: #ffffff;
+}
+
+/* Especificidad: 010 */
+[data-role="ruta"] {
+    margin: 2em 0;
+    padding: 1em;
+    border: 0.1em solid var(--color-borde);
+}
+
+/* Especificidad: 010 */
+[data-role="mapa-ruta"] {
+    width: 100%;
+    min-height: 25em;
+    margin: 1em 0;
+}
+
+/* Especificidad: 010 */
+[data-role="fecha-noticia"] {
+    font-size: 0.9em;
+}
+
+/* Especificidad: 010 */
+[data-role="mensaje"],
+[data-role="mensaje-exito"] {
+    color: var(--color-exito);
+    background-color: var(--color-secundario);
+    font-weight: bold;
+}
+
+/* Especificidad: 010 */
+[data-role="mensaje-error"] {
+    color: var(--color-primario);
+    background-color: var(--color-secundario);
+    font-weight: bold;
+}
+
+/* Especificidad: 001 */
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Especificidad: 010 */
+[data-role="ruta"] a {
+    color: var(--color-primario);
+    background-color: var(--color-secundario);
+}
+
+/* Preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    [data-role="carrusel"] img,
+    [data-role="carrusel"] button {
+        transition: none;
+    }
+    [data-role="carrusel"] {
+        animation: none;
+    }
+}

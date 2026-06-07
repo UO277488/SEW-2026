@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rutas SYSTEM "rutas.dtd">
+<rutas xmlns="http://www.uniovi.es"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.uniovi.es rutas.xsd">
+    <ruta>
+        <nombreRuta>Ruta del Teide</nombreRuta>
+        <tipoRuta>Paisajística y Senderismo</tipoRuta>
+        <medioTransporte>A pie</medioTransporte>
+        <fechaInicio>2026-06-15</fechaInicio>
+        <horaInicio>08:00:00</horaInicio>
+        <agencia>Sin agencia</agencia>
+        <descripcion>Ascenso al Parque Nacional del Teide, el pico más alto de España con 3715 metros. Recorrido por senderos volcánicos con vistas espectaculares de la isla, pasando por Los Roques de García y la estación de teleférico.</descripcion>
+        <personas>Todas las edades, se recomienda buena forma física para la subida completa</personas>
+        <duracion>8 horas</duracion>
+        <lugarInicio>Parque Nacional del Teide, Centro de Visitantes</lugarInicio>
+        <direccionInicio>Carretera TF-21, km 38, 38300 La Orotava</direccionInicio>
+        <coordenadas>
+            <longitud>-16.653000</longitud>
+            <latitud>28.271000</latitud>
+            <altitud>2356.00</altitud>
+        </coordenadas>
+        <referencias>
+            <referencia>https://www.webtenerife.com/teide/</referencia>
+            <referencia>https://es.wikipedia.org/wiki/Parque_nacional_del_Teide</referencia>
+            <referencia>https://www.tenerife.es/</referencia>
+            <referencia>https://www.reservasparquesnacionales.es/</referencia>
+        </referencias>
+        <recomendacion>9</recomendacion>
+        <hitos>
+            <hito>
+                <nombreHito>Centro de Visitantes El Portillo</nombreHito>
+                <descripcionHito>Inicio de la ruta con información sobre el parque nacional y su formación geológica.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.653000</longitud>
+                    <latitud>28.271000</latitud>
+                    <altitud>2356.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">0</distancia>
+                <galeriaFotos>
+                    <foto src="teide_portillo.jpg">Centro de Visitantes El Portillo</foto>
+                </galeriaFotos>
+            </hito>
+            <hito>
+                <nombreHito>Los Roques de García</nombreHito>
+                <descripcionHito>Espectaculares formaciones rocosas volcánicas, incluyendo el famoso Roque Cinchado, símbolo de la isla.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.642000</longitud>
+                    <latitud>28.225000</latitud>
+                    <altitud>2020.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">5000</distancia>
+                <galeriaFotos>
+                    <foto src="roques_garcia.jpg">Los Roques de García</foto>
+                    <foto src="roque_cinchado.jpg">Roque Cinchado</foto>
+                </galeriaFotos>
+            </hito>
+            <hito>
+                <nombreHito>Teleférico del Teide</nombreHito>
+                <descripcionHito>Estación base del teleférico que asciende hasta La Rambleta, a 3555 metros de altitud.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.648000</longitud>
+                    <latitud>28.240000</latitud>
+                    <altitud>2356.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">3000</distancia>
+                <galeriaFotos>
+                    <foto src="teleferico_teide.jpg">Teleférico del Teide</foto>
+                </galeriaFotos>
+            </hito>
+            <hito>
+                <nombreHito>Mirador de La Fortaleza</nombreHito>
+                <descripcionHito>Impresionante mirador natural con vistas al Valle de La Orotava y al pico del Teide.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.617000</longitud>
+                    <latitud>28.299000</latitud>
+                    <altitud>2150.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">7000</distancia>
+                <galeriaFotos>
+                    <foto src="mirador_fortaleza.jpg">Mirador de La Fortaleza</foto>
+                    <foto src="valle_orotava.jpg">Valle de La Orotava</foto>
+                </galeriaFotos>
+            </hito>
+            <hito>
+                <nombreHito>Pico del Teide</nombreHito>
+                <descripcionHito>Cima del Teide, el punto más alto de España a 3715 metros. Vistas panorámicas de todo el archipiélago canario.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.642000</longitud>
+                    <latitud>28.272000</latitud>
+                    <altitud>3715.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">8000</distancia>
+                <galeriaFotos>
+                    <foto src="cima_teide.jpg">Cima del Teide</foto>
+                </galeriaFotos>
+            </hito>
+        </hitos>
+        <planimetria>planimetria_ruta1.kml</planimetria>
+        <altimetria>altimetria_ruta1.svg</altimetria>
+    </ruta>
+    <ruta>
+        <nombreRuta>Ruta de La Laguna y Anaga</nombreRuta>
+        <tipoRuta>Arquitectura y monumentos, Senderismo</tipoRuta>
+        <medioTransporte>A pie</medioTransporte>
+        <agencia>NaturaTur</agencia>
+        <descripcion>Recorrido por el casco histórico de San Cristóbal de La Laguna, Patrimonio de la Humanidad, y el Parque Rural de Anaga, reserva de la biosfera con bosques de laurisilva.</descripcion>
+        <personas>Todas las edades, rutas suaves por la ciudad y senderos marcados en Anaga</personas>
+        <duracion>6 horas</duracion>
+        <lugarInicio>Plaza del Adelantado, La Laguna</lugarInicio>
+        <direccionInicio>Plaza del Adelantado, 38201 San Cristóbal de La Laguna</direccionInicio>
+        <coordenadas>
+            <longitud>-16.314000</longitud>
+            <latitud>28.487000</latitud>
+            <altitud>546.00</altitud>
+        </coordenadas>
+        <referencias>
+            <referencia>https://www.ayuntamiento.es/san-cristobal-de-la-laguna/</referencia>
+            <referencia>https://es.wikipedia.org/wiki/San_Crist%C3%B3bal_de_La_Laguna</referencia>
+            <referencia>https://www.tenerife.es/</referencia>
+            <referencia>https://www.reservasparquesnacionales.es/</referencia>
+        </referencias>
+        <recomendacion>10</recomendacion>
+        <hitos>
+            <hito>
+                <nombreHito>Plaza del Adelantado</nombreHito>
+                <descripcionHito>Corazón de La Laguna, con su emblemática fuente y rodeada de edificios históricos como el Ayuntamiento.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.314000</longitud>
+                    <latitud>28.487000</latitud>
+                    <altitud>546.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">0</distancia>
+                <galeriaFotos>
+                    <foto src="plaza_adelantado.jpg">Plaza del Adelantado</foto>
+                </galeriaFotos>
+            </hito>
+            <hito>
+                <nombreHito>Catedral de La Laguna</nombreHito>
+                <descripcionHito>Catedral de Nuestra Señora de los Remedios, de estilo neogótico con fachada de piedra volcánica.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.313000</longitud>
+                    <latitud>28.489000</latitud>
+                    <altitud>550.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">300</distancia>
+                <galeriaFotos>
+                    <foto src="catedral_laguna.jpg">Catedral de La Laguna</foto>
+                    <foto src="fachada_catedral.jpg">Fachada de la Catedral</foto>
+                </galeriaFotos>
+            </hito>
+            <hito>
+                <nombreHito>Monasterio de Santa Catalina</nombreHito>
+                <descripcionHito>Antiguo convento del siglo XVII, actual sede del Instituto de Estudios Canarios.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.315000</longitud>
+                    <latitud>28.491000</latitud>
+                    <altitud>548.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">400</distancia>
+                <galeriaFotos>
+                    <foto src="monasterio_catalina.jpg">Monasterio de Santa Catalina</foto>
+                </galeriaFotos>
+            </hito>
+            <hito>
+                <nombreHito>Parque Rural de Anaga - Sendero de los Sentidos</nombreHito>
+                <descripcionHito>Recorrido sensorial por el bosque de laurisilva, con paneles informativos y miradores.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.290000</longitud>
+                    <latitud>28.540000</latitud>
+                    <altitud>800.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">12000</distancia>
+                <galeriaFotos>
+                    <foto src="anaga_sendero.jpg">Sendero de los Sentidos</foto>
+                    <foto src="laurisilva.jpg">Bosque de Laurisilva</foto>
+                </galeriaFotos>
+            </hito>
+            <hito>
+                <nombreHito>Mirador de La Cruz del Carmen</nombreHito>
+                <descripcionHito>Mirador con vistas panorámicas del macizo de Anaga y la costa norte de Tenerife.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.275000</longitud>
+                    <latitud>28.550000</latitud>
+                    <altitud>920.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">3000</distancia>
+                <galeriaFotos>
+                    <foto src="cruz_carmen.jpg">Mirador de La Cruz del Carmen</foto>
+                </galeriaFotos>
+            </hito>
+        </hitos>
+        <planimetria>planimetria_ruta2.kml</planimetria>
+        <altimetria>altimetria_ruta2.svg</altimetria>
+    </ruta>
+    <ruta>
+        <nombreRuta>Ruta de Los Gigantes y Masca</nombreRuta>
+        <tipoRuta>Paisajística, Escalada y Senderismo</tipoRuta>
+        <medioTransporte>A pie</medioTransporte>
+        <agencia>Sin agencia</agencia>
+        <descripcion>Espectacular ruta por los Acantilados de Los Gigantes, con paredes verticales de hasta 600 metros sobre el mar, y el pueblo de Masca, uno de los más bonitos de España, con su famoso barranco.</descripcion>
+        <personas>Personas en buena forma física, no recomendado para niños pequeños ni tercera edad</personas>
+        <duracion>5 horas</duracion>
+        <lugarInicio>Puerto de Los Gigantes, Santiago del Teide</lugarInicio>
+        <direccionInicio>Av. de Los Gigantes, 1, 38683 Santiago del Teide</direccionInicio>
+        <coordenadas>
+            <longitud>-16.840000</longitud>
+            <latitud>28.240000</latitud>
+            <altitud>10.00</altitud>
+        </coordenadas>
+        <referencias>
+            <referencia>https://www.webtenerife.com/masca/</referencia>
+            <referencia>https://es.wikipedia.org/wiki/Masca</referencia>
+            <referencia>https://www.tenerife.es/</referencia>
+            <referencia>https://www.santiagodelteide.es/</referencia>
+        </referencias>
+        <recomendacion>8</recomendacion>
+        <hitos>
+            <hito>
+                <nombreHito>Puerto de Los Gigantes</nombreHito>
+                <descripcionHito>Punto de partida con vistas a los impresionantes acantilados. Puerto deportivo con restaurantes y tiendas.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.840000</longitud>
+                    <latitud>28.240000</latitud>
+                    <altitud>10.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">0</distancia>
+                <galeriaFotos>
+                    <foto src="puerto_gigantes.jpg">Puerto de Los Gigantes</foto>
+                </galeriaFotos>
+            </hito>
+            <hito>
+                <nombreHito>Mirador de Los Gigantes</nombreHito>
+                <descripcionHito>Mirador con vistas panorámicas de los acantilados y el océano Atlántico.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.845000</longitud>
+                    <latitud>28.245000</latitud>
+                    <altitud>150.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">1000</distancia>
+                <galeriaFotos>
+                    <foto src="mirador_gigantes.jpg">Mirador de Los Gigantes</foto>
+                    <foto src="acantilados_gigantes.jpg">Acantilados de Los Gigantes</foto>
+                </galeriaFotos>
+            </hito>
+            <hito>
+                <nombreHito>Pueblo de Masca</nombreHito>
+                <descripcionHito>Pequeño pueblo rural de montaña, considerado uno de los más bonitos de España, con casas tradicionales canarias.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.838000</longitud>
+                    <latitud>28.255000</latitud>
+                    <altitud>650.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">5000</distancia>
+                <galeriaFotos>
+                    <foto src="pueblo_masca.jpg">Pueblo de Masca</foto>
+                    <foto src="casas_masca.jpg">Casas tradicionales de Masca</foto>
+                </galeriaFotos>
+            </hito>
+            <hito>
+                <nombreHito>Mirador de Masca</nombreHito>
+                <descripcionHito>Espectacular mirador con vistas del barranco de Masca y el mar.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.840000</longitud>
+                    <latitud>28.258000</latitud>
+                    <altitud>700.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">500</distancia>
+                <galeriaFotos>
+                    <foto src="mirador_masca.jpg">Mirador de Masca</foto>
+                </galeriaFotos>
+            </hito>
+            <hito>
+                <nombreHito>Barranco de Masca</nombreHito>
+                <descripcionHito>Impresionante barranco tallado por la erosión, con paredes verticales y vegetación autóctona. Ruta de descenso hasta la playa.</descripcionHito>
+                <coordenadasHito>
+                    <longitud>-16.842000</longitud>
+                    <latitud>28.260000</latitud>
+                    <altitud>200.00</altitud>
+                </coordenadasHito>
+                <distancia unidad="metros">2000</distancia>
+                <galeriaFotos>
+                    <foto src="barranco_masca.jpg">Barranco de Masca</foto>
+                </galeriaFotos>
+                <galeriaVideos>
+                    <video src="masca_tour.mp4">Vídeo del Barranco de Masca</video>
+                </galeriaVideos>
+            </hito>
+        </hitos>
+        <planimetria>planimetria_ruta3.kml</planimetria>
+        <altimetria>altimetria_ruta3.svg</altimetria>
+    </ruta>
+</rutas>

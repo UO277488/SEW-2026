@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="author" content="UO277488" >
+    <meta name="description" content="Rutas turísticas por la provincia de Santa Cruz de Tenerife" >
+    <meta name="keywords" content="Tenerife, rutas, turismo, Teide, Anaga, Masca" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta property="og:title" content="Rutas - Santa Cruz de Tenerife" >
+    <meta property="og:description" content="Rutas turísticas por la provincia de Santa Cruz de Tenerife" >
+    <meta property="og:type" content="website" >
+    <meta name="twitter:card" content="summary" >
+    <title>Rutas - Santa Cruz de Tenerife</title>
+    <link rel="icon" href="multimedia/favicon.svg" type="image/svg+xml" >
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" >
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" >
+    <link rel="stylesheet" type="text/css" href="estilo/print.css" media="print" >
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" >
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="js/rutas.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html" title="Volver a la página principal">Santa Cruz de Tenerife</a></h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="gastronomia.html">Gastronomía</a>
+            <a href="rutas.html" class="activo" aria-current="page">Rutas</a>
+            <a href="meteorologia.html">Meteorología</a>
+            <a href="juego.html">Juego</a>
+            <a href="reservas.php">Reservas</a>
+            <a href="ayuda.html">Ayuda</a>
+        </nav>
+    </header>
+    <main>
+        <noscript><p>Esta página requiere JavaScript para cargar y visualizar las rutas. Actívalo en tu navegador.</p></noscript>
+        <p><a href="index.html">Inicio</a> <strong>&gt;</strong> Rutas</p>
+        <section>
+            <h2>Rutas turísticas por la provincia</h2>
+            <p>Carga el archivo de rutas desde tu ordenador para ver la información detallada de cada ruta turística.</p>
+            <form>
+                <label for="xmlFile">Selecciona el archivo rutas.xml:</label>
+                <input type="file" id="xmlFile" accept=".xml" >
+            </form>
+            <div id="info-rutas"></div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 UO277488 - Software y Estándares para la Web</p>
+        <address>Contacto: <a href="mailto:uo277488@uniovi.es">uo277488@uniovi.es</a></address>
+    </footer>
+</body>
+</html>
