@@ -44,7 +44,7 @@
             <figure>
                 <div data-role="carrusel" id="carrusel">
                     <button type="button" id="anterior" aria-label="Ver fotografía anterior">&#9664;</button>
-                    <img id="imagen-carrusel" src="multimedia/mapa_santacruz.jpg" alt="Galería turística de Santa Cruz de Tenerife" loading="lazy" decoding="async" >
+                    <img id="imagen-carrusel" src="multimedia/mapa_santacruz.jpg" alt="Galería turística de Santa Cruz de Tenerife" loading="lazy" decoding="async" onerror="this.onerror=null; this.src=this.src.replace('.jpg', '.png')">
                     <button type="button" id="siguiente" aria-label="Ver fotografía siguiente">&#9654;</button>
                 </div>
                 <figcaption>Galería de recursos turísticos de la provincia</figcaption>

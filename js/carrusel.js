@@ -45,7 +45,13 @@ class Carrusel {
         $("#anterior").on("click", () => this.#cambiarFotografia(-1));
         $("#siguiente").on("click", () => this.#cambiarFotografia(1));
         $("#imagen-carrusel").on("error", function() {
-            $(this).attr("alt", "No se pudo cargar la fotografía del carrusel");
+            var src = $(this).attr("src");
+            if (src.indexOf(".jpg") !== -1) {
+                this.onerror = null;
+                $(this).attr("src", src.replace(".jpg", ".png"));
+            } else {
+                $(this).attr("alt", "No se pudo cargar la fotografía del carrusel");
+            }
         });
 
         this.#intervalo = setInterval(() => this.#cambiarFotografia(1), 3000);
