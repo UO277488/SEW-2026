@@ -4,8 +4,6 @@ Proyecto de la asignatura **Software y Estándares para la Web** (SEW) - Curso 2
 
 **Autor:** UO277488  
 **Repositorio:** https://github.com/UO277488/SEW-2026  
-**GitHub Pages:** (pendiente de activar)
-
 ---
 
 ## Descripción
