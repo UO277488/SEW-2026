@@ -27,9 +27,12 @@ class Ciudad {
     }
 
     obtenerGentilicioPoblacion() {
-        const ul = $("<ul>");
-        ul.append($("<li>").text(`Gentilicio: ${this.#gentilicio}`));
-        ul.append($("<li>").text(`Población: ${this.#poblacion}`));
+        const ul = document.createElement("ul");
+        const li1 = document.createElement("li");
+        li1.textContent = `Gentilicio: ${this.#gentilicio}`;
+        const li2 = document.createElement("li");
+        li2.textContent = `Población: ${this.#poblacion}`;
+        ul.append(li1, li2);
         return ul;
     }
 
@@ -38,8 +41,9 @@ class Ciudad {
     }
 
     mostrarCoordenadas() {
-        const p = $("<p>").text(`Coordenadas: Latitud ${this.#coordenadas.latitud}, Longitud ${this.#coordenadas.longitud}`);
-        $("#meteo-info").append(p);
+        const p = document.createElement("p");
+        p.textContent = `Coordenadas: Latitud ${this.#coordenadas.latitud}, Longitud ${this.#coordenadas.longitud}`;
+        document.querySelector("#meteo-info").appendChild(p);
     }
 }
 
@@ -52,23 +56,19 @@ class CiudadMeteorologia extends Ciudad {
     }
 
     async #getMeteorologia() {
-        const params = {
+        const params = new URLSearchParams({
             latitude: 28.4682,
             longitude: -16.2546,
             current: "temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m",
             daily: "temperature_2m_max,temperature_2m_min,weather_code,precipitation_sum,wind_speed_10m_max",
             timezone: "Atlantic/Canary",
             forecast_days: 7
-        };
+        });
 
         try {
-            const response = await $.ajax({
-                url: this.#urlApi,
-                method: "GET",
-                data: params,
-                dataType: "json"
-            });
-            return response;
+            const response = await fetch(`${this.#urlApi}?${params}`);
+            if (!response.ok) return null;
+            return await response.json();
         } catch (error) {
             return null;
         }
@@ -89,15 +89,15 @@ class CiudadMeteorologia extends Ciudad {
 
     async mostrarMeteorologia() {
         const datos = await this.#getMeteorologia();
-        const contenedor = $("#meteo-info");
+        const contenedor = document.querySelector("#meteo-info");
 
         if (!datos || !datos.current) {
-            contenedor.html("<p>No se pudieron obtener los datos meteorológicos.</p>");
+            contenedor.innerHTML = "<p>No se pudieron obtener los datos meteorológicos.</p>";
             return;
         }
 
         const current = datos.current;
-        const html = `
+        contenedor.innerHTML = `
             <h3>Tiempo actual en ${this.obtenerNombre()}</h3>
             <p>Temperatura: ${current.temperature_2m}°C</p>
             <p>Sensación térmica: ${current.apparent_temperature}°C</p>
@@ -106,15 +106,14 @@ class CiudadMeteorologia extends Ciudad {
             <p>Viento: ${current.wind_speed_10m} km/h</p>
             <p>Estado: ${this.#traducirCodigo(current.weather_code)}</p>
         `;
-        contenedor.html(html);
     }
 
     async mostrarPrevision() {
         const datos = await this.#getMeteorologia();
-        const contenedor = $("#meteo-prevision");
+        const contenedor = document.querySelector("#meteo-prevision");
 
         if (!datos || !datos.daily) {
-            contenedor.html("<p>No se pudieron obtener los datos de previsión.</p>");
+            contenedor.innerHTML = "<p>No se pudieron obtener los datos de previsión.</p>";
             return;
         }
 
@@ -127,11 +126,11 @@ class CiudadMeteorologia extends Ciudad {
         }
 
         html += "</tbody></table>";
-        contenedor.html(html);
+        contenedor.innerHTML = html;
     }
 }
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
     const ciudad = new CiudadMeteorologia("Santa Cruz de Tenerife", "España", "santacrucero/a");
     ciudad.rellenarAtributos("208,563", {latitud: "28.4682", longitud: "-16.2546"});
     ciudad.mostrarMeteorologia();

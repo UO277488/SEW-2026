@@ -66,13 +66,13 @@ nav a {
 
 /* Especificidad: 012 */
 nav a:hover {
-    color: #ffffff;
+    color: #ffffff; /* Hereda background-color de header */
     background-color: var(--color-hover);
 }
 
 /* Especificidad: 012 */
 nav a:focus {
-    color: #ffffff;
+    color: #ffffff; /* Hereda background-color de header */
     background-color: var(--color-hover);
     outline: 0.2em solid var(--color-activo);
 }
@@ -269,7 +269,7 @@ form article label {
 [data-role="form-reserva"] input[type="submit"]:hover,
 [data-role="form-reserva"] input[type="reset"]:hover {
     background-color: var(--color-hover);
-    color: #ffffff;
+    color: #ffffff; /* Hereda background-color de la regla principal */
 }
 
 /* Especificidad: 010 */

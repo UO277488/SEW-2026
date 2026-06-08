@@ -1,4 +1,8 @@
 <!ELEMENT rutas (ruta+)>
+<!ATTLIST rutas
+    xmlns CDATA #FIXED "http://www.uniovi.es"
+    xmlns:xsi CDATA #FIXED "http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation CDATA #IMPLIED>
 <!ELEMENT ruta (nombreRuta, tipoRuta, medioTransporte, fechaInicio?, horaInicio?, agencia, descripcion, personas, duracion, lugarInicio, direccionInicio, coordenadas, referencias, recomendacion, hitos, planimetria, altimetria)>
 <!ELEMENT nombreRuta (#PCDATA)>
 <!ELEMENT tipoRuta (#PCDATA)>

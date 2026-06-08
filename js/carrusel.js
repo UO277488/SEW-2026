@@ -2,6 +2,9 @@ class Carrusel {
     #fotos;
     #indice;
     #intervalo;
+    #imagen;
+    #anterior;
+    #siguiente;
 
     constructor() {
         this.#fotos = [
@@ -32,25 +35,27 @@ class Carrusel {
         ];
         this.#indice = 0;
         this.#intervalo = null;
+        this.#imagen = document.querySelector("#imagen-carrusel");
+        this.#anterior = document.querySelector("#anterior");
+        this.#siguiente = document.querySelector("#siguiente");
     }
 
     #cambiarFotografia(direccion) {
         this.#indice = (this.#indice + direccion + this.#fotos.length) % this.#fotos.length;
-        $("#imagen-carrusel")
-            .attr("src", this.#fotos[this.#indice].src)
-            .attr("alt", this.#fotos[this.#indice].alt);
+        this.#imagen.src = this.#fotos[this.#indice].src;
+        this.#imagen.alt = this.#fotos[this.#indice].alt;
     }
 
     iniciar() {
-        $("#anterior").on("click", () => this.#cambiarFotografia(-1));
-        $("#siguiente").on("click", () => this.#cambiarFotografia(1));
-        $("#imagen-carrusel").on("error", function() {
-            var src = $(this).attr("src");
+        this.#anterior.addEventListener("click", () => this.#cambiarFotografia(-1));
+        this.#siguiente.addEventListener("click", () => this.#cambiarFotografia(1));
+        this.#imagen.addEventListener("error", function() {
+            var src = this.src;
             if (src.indexOf(".jpg") !== -1) {
                 this.onerror = null;
-                $(this).attr("src", src.replace(".jpg", ".png"));
+                this.src = src.replace(".jpg", ".png");
             } else {
-                $(this).attr("alt", "No se pudo cargar la fotografía del carrusel");
+                this.alt = "No se pudo cargar la fotografía del carrusel";
             }
         });
 
@@ -58,7 +63,7 @@ class Carrusel {
     }
 }
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
     const carrusel = new Carrusel();
     carrusel.iniciar();
 });

@@ -4,7 +4,7 @@ class RutaManager {
     }
 
     #inicializar() {
-        $("#xmlFile").on("change", (event) => this.#cargarXML(event));
+        document.querySelector("#xmlFile").addEventListener("change", (event) => this.#cargarXML(event));
     }
 
     #cargarXML(event) {
@@ -17,12 +17,12 @@ class RutaManager {
                 const parser = new DOMParser();
                 const xmlDoc = parser.parseFromString(e.target.result, "text/xml");
                 if (xmlDoc.getElementsByTagName("parsererror").length > 0) {
-                    $("#info-rutas").html("<p>El archivo XML seleccionado no tiene una estructura válida.</p>");
+                    document.querySelector("#info-rutas").innerHTML = "<p>El archivo XML seleccionado no tiene una estructura válida.</p>";
                     return;
                 }
                 this.#procesarRutas(xmlDoc);
             } catch (error) {
-                $("#info-rutas").html("<p>Error al procesar el archivo XML.</p>");
+                document.querySelector("#info-rutas").innerHTML = "<p>Error al procesar el archivo XML.</p>";
             }
         };
         lector.readAsText(archivo);
@@ -30,11 +30,11 @@ class RutaManager {
 
     #procesarRutas(xmlDoc) {
         const rutas = xmlDoc.getElementsByTagName("ruta");
-        const contenedor = $("#info-rutas");
-        contenedor.empty();
+        const contenedor = document.querySelector("#info-rutas");
+        contenedor.replaceChildren();
 
         if (!rutas || rutas.length === 0) {
-            contenedor.html("<p>No se encontraron rutas en el archivo XML.</p>");
+            contenedor.innerHTML = "<p>No se encontraron rutas en el archivo XML.</p>";
             return;
         }
 
@@ -59,8 +59,9 @@ class RutaManager {
             const latitudInicio = this.#getTexto(coordenadasInicio, "latitud");
             const altitudInicio = this.#getTexto(coordenadasInicio, "altitud");
 
-            const section = $("<section>").attr("data-role", "ruta");
-            section.html(`
+            const section = document.createElement("section");
+            section.setAttribute("data-role", "ruta");
+            section.innerHTML = `
                 <h3>${nombre}</h3>
                 <p><strong>Tipo:</strong> ${tipo}</p>
                 <p><strong>Transporte:</strong> ${transporte}</p>
@@ -77,15 +78,15 @@ class RutaManager {
                 <h4>Referencias</h4>
                 <ul data-role="referencias-${i}"></ul>
                 <h4>Hitos de la ruta</h4>
-                <div id="hitos-${i}"></div>
+                <section id="hitos-${i}"></section>
                 <h4>Planimetría</h4>
-                <div data-role="mapa-ruta" id="mapa-${i}"></div>
+                <section data-role="mapa-ruta" id="mapa-${i}"></section>
                 <p><a href="xml/${planimetria}">Archivo KML de la planimetría</a></p>
                 <h4>Altimetría</h4>
-                <div id="altimetria-${i}"></div>
-            `);
+                <section id="altimetria-${i}"></section>
+            `;
 
-            contenedor.append(section);
+            contenedor.appendChild(section);
 
             this.#mostrarReferencias(ruta, `[data-role="referencias-${i}"]`);
             this.#mostrarHitos(ruta, `hitos-${i}`);
@@ -121,9 +122,9 @@ class RutaManager {
                     L.polyline(polyline, {color: "red", weight: 3}).addTo(mapa);
                 }
             } else if (coordenadas.length > 0) {
-                $(`#mapa-${i}`).html("<p>No se pudo cargar la biblioteca cartográfica. Se mantiene disponible el archivo KML enlazado.</p>");
+                document.querySelector(`#mapa-${i}`).innerHTML = "<p>No se pudo cargar la biblioteca cartográfica. Se mantiene disponible el archivo KML enlazado.</p>";
             } else {
-                $(`#mapa-${i}`).html("<p>No hay coordenadas suficientes para representar la planimetría.</p>");
+                document.querySelector(`#mapa-${i}`).innerHTML = "<p>No hay coordenadas suficientes para representar la planimetría.</p>";
             }
 
             this.#cargarAltimetria(i, altimetria);
@@ -132,18 +133,23 @@ class RutaManager {
 
     #mostrarReferencias(ruta, selector) {
         const referencias = ruta.getElementsByTagName("referencia");
-        const contenedor = $(selector);
+        const contenedor = document.querySelector(selector);
 
         for (let i = 0; i < referencias.length; i++) {
             const url = referencias[i].textContent || "";
-            const enlace = $("<a>").attr("href", url).attr("rel", "noopener noreferrer").text(url);
-            contenedor.append($("<li>").append(enlace));
+            const enlace = document.createElement("a");
+            enlace.href = url;
+            enlace.rel = "noopener noreferrer";
+            enlace.textContent = url;
+            const li = document.createElement("li");
+            li.appendChild(enlace);
+            contenedor.appendChild(li);
         }
     }
 
     #mostrarHitos(ruta, contenedorId) {
         const hitos = ruta.getElementsByTagName("hito");
-        const contenedor = $(`#${contenedorId}`);
+        const contenedor = document.querySelector(`#${contenedorId}`);
 
         for (let i = 0; i < hitos.length; i++) {
             const nombre = this.#getTexto(hitos[i], "nombreHito");
@@ -151,25 +157,31 @@ class RutaManager {
             const distancia = this.#getTexto(hitos[i], "distancia");
             const distanciaUnidad = hitos[i].getElementsByTagName("distancia")[0]?.getAttribute("unidad") || "m";
 
-            const hitoDiv = $("<div>").attr("data-role", "hito");
-            hitoDiv.html(`<p><strong>${nombre}</strong> - ${descripcion} (Distancia: ${distancia} ${distanciaUnidad})</p>`);
+            const hitoDiv = document.createElement("article");
+            hitoDiv.setAttribute("data-role", "hito");
+            const p = document.createElement("p");
+            p.innerHTML = `<strong>${nombre}</strong> - ${descripcion} (Distancia: ${distancia} ${distanciaUnidad})`;
+            hitoDiv.appendChild(p);
 
             const fotos = hitos[i].getElementsByTagName("foto");
             if (fotos.length > 0) {
-                const galeria = $("<div>").attr("data-role", "galeria-grid");
+                const galeria = document.createElement("figure");
+                galeria.setAttribute("data-role", "galeria-grid");
                 for (let j = 0; j < fotos.length; j++) {
                     const src = fotos[j].getAttribute("src") || "";
                     const texto = fotos[j].textContent || "";
-                    const img = $("<img>")
-                        .attr("src", `multimedia/${src}`)
-                        .attr("alt", texto)
-                        .on("error", function() {
-                            $(this).replaceWith($("<p>").text(`No se pudo cargar la fotografía: ${texto}`));
-                        });
-                    if (src) galeria.append(img);
+                    const img = document.createElement("img");
+                    img.src = `multimedia/${src}`;
+                    img.alt = texto;
+                    img.addEventListener("error", function() {
+                        const errP = document.createElement("p");
+                        errP.textContent = `No se pudo cargar la fotografía: ${texto}`;
+                        img.replaceWith(errP);
+                    });
+                    if (src) galeria.appendChild(img);
                 }
-                if (galeria.children().length > 0) {
-                    hitoDiv.append(galeria);
+                if (galeria.children.length > 0) {
+                    hitoDiv.appendChild(galeria);
                 }
             }
 
@@ -177,18 +189,24 @@ class RutaManager {
             for (let j = 0; j < videos.length; j++) {
                 const src = videos[j].getAttribute("src") || "";
                 const texto = videos[j].textContent || "Vídeo de la ruta";
-                const video = $("<video>").attr("controls", true);
-                video.append($("<source>").attr("src", `multimedia/${src}`).attr("type", "video/mp4"));
-                video.append($("<p>").text(`Tu navegador no puede reproducir el vídeo: ${texto}`));
-                if (src) hitoDiv.append(video);
+                const video = document.createElement("video");
+                video.controls = true;
+                const source = document.createElement("source");
+                source.src = `multimedia/${src}`;
+                source.type = "video/mp4";
+                video.appendChild(source);
+                const fallback = document.createElement("p");
+                fallback.textContent = `Tu navegador no puede reproducir el vídeo: ${texto}`;
+                video.appendChild(fallback);
+                if (src) hitoDiv.appendChild(video);
             }
 
-            contenedor.append(hitoDiv);
+            contenedor.appendChild(hitoDiv);
         }
     }
 
     #cargarAltimetria(indice, archivo) {
-        const contenedor = $(`#altimetria-${indice}`);
+        const contenedor = document.querySelector(`#altimetria-${indice}`);
         const nombreArchivo = archivo || `altimetria_ruta${indice + 1}.svg`;
         fetch(`xml/${nombreArchivo}`)
             .then(response => {
@@ -196,10 +214,10 @@ class RutaManager {
                 return response.text();
             })
             .then(svgContent => {
-                contenedor.html(svgContent);
+                contenedor.innerHTML = svgContent;
             })
             .catch(() => {
-                contenedor.html(`<p>No se pudo cargar la altimetría. <a href="xml/${nombreArchivo}">Abrir archivo SVG</a>.</p>`);
+                contenedor.innerHTML = `<p>No se pudo cargar la altimetría. <a href="xml/${nombreArchivo}">Abrir archivo SVG</a>.</p>`;
             });
     }
 
@@ -210,6 +228,6 @@ class RutaManager {
     }
 }
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
     new RutaManager();
 });

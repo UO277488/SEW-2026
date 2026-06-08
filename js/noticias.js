@@ -18,24 +18,34 @@ class Noticias {
     }
 
     #mostrarNoticias(noticias) {
-        const contenedor = $("#noticias");
-        contenedor.empty();
+        const contenedor = document.querySelector("#noticias");
+        contenedor.replaceChildren();
 
         if (!noticias || noticias.length === 0) {
-            contenedor.html("<p>No se pudieron cargar las noticias en este momento.</p>");
+            const p = document.createElement("p");
+            p.textContent = "No se pudieron cargar las noticias en este momento.";
+            contenedor.appendChild(p);
             return;
         }
 
         noticias.forEach(noticia => {
             const fecha = noticia.pubDate ? new Date(noticia.pubDate).toLocaleDateString("es-ES") : "";
-            const article = $("<article>");
-            const titulo = $("<h3>").text(noticia.title || "Sin título");
-            const descripcion = $("<p>").text(noticia.description || "");
-            const fuente = $("<a>").attr("href", noticia.link).attr("target", "_blank").attr("rel", "noopener noreferrer").text("Leer más");
-            const metadata = $("<p>").attr("data-role", "fecha-noticia").text(fecha ? `Publicado: ${fecha}` : "");
+            const article = document.createElement("article");
+            const titulo = document.createElement("h3");
+            titulo.textContent = noticia.title || "Sin título";
+            const descripcion = document.createElement("p");
+            descripcion.textContent = noticia.description || "";
+            const fuente = document.createElement("a");
+            fuente.href = noticia.link;
+            fuente.target = "_blank";
+            fuente.rel = "noopener noreferrer";
+            fuente.textContent = "Leer más";
+            const metadata = document.createElement("p");
+            metadata.setAttribute("data-role", "fecha-noticia");
+            metadata.textContent = fecha ? `Publicado: ${fecha}` : "";
 
             article.append(titulo, descripcion, metadata, fuente);
-            contenedor.append(article);
+            contenedor.appendChild(article);
         });
     }
 
@@ -45,7 +55,7 @@ class Noticias {
     }
 }
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
     const noticias = new Noticias();
     noticias.iniciar();
 });

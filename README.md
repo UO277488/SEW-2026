@@ -145,10 +145,25 @@ Seguir `UO277488-PruebasDespliegue.md` para desplegar en una VM de Azure con Ubu
 - **Diseño responsive** con 3 puntos de ruptura (desktop, tablet, móvil)
 - **Accesibilidad** WCAG con contraste AA/AAA, aria-current, prefers-reduced-motion
 
+## Advertencia: uso de `<div>`
+
+Por semántica HTML5 se priorizan elementos con significado (`<section>`, `<figure>`, `<nav>`, etc.). Los únicos `<div>` del proyecto se usan **exclusivamente** como contenedores de inyección de contenido dinámico vía JavaScript — no hay `<div>` puramente presentacionales ni redundantes:
+
+| Archivo | `<div>` | Justificación |
+|---------|---------|---------------|
+| `index.html:54` | `<div id="noticias" data-role="noticias">` | Target donde `noticias.js` inyecta las noticias desde NewsData.io |
+| `meteorologia.html:38` | `<div id="meteo-info" data-role="meteorologia">` | Target donde `ciudad.js` inyecta el tiempo actual desde Open-Meteo |
+| `meteorologia.html:39` | `<div id="meteo-prevision" data-role="meteorologia">` | Target donde `ciudad.js` inyecta la previsión a 7 días |
+| `juego.html:40` | `<div id="preguntas">` | Target donde `juego.js` genera dinámicamente las preguntas del test |
+| `juego.html:43` | `<div id="resultado">` | Target donde `juego.js` muestra la puntuación final |
+| `rutas.html:45` | `<div id="info-rutas">` | Target donde `rutas.js` inyecta los datos del XML de rutas |
+
+No se eliminan porque JS necesita un nodo DOM preexistente como punto de anclaje para la manipulación dinámica.
+
 ## Validaciones
 
 | Tipo | Resultado |
-|---|---|
+|---|---|---|
 | HTML5 (W3C Nu) | 0 errores en todos los documentos |
 | CSS3 (W3C Jigsaw) | 0 errores en todas las hojas |
 | Contraste de color | AA y AAA superados |

@@ -32,7 +32,7 @@ h3 {
 
 /* Especificidad: 001 */
 a {
-    color: #000000;
+    color: #000000; /* Hereda background-color de body */
     text-decoration: underline;
 }
 

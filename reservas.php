@@ -84,6 +84,7 @@ $mis_reservas = isset($reservas) && isset($_SESSION["usuario_id"]) ? $reservas->
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" >
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" >
     <link rel="stylesheet" type="text/css" href="estilo/print.css" media="print" >
+    <script src="js/reservas.js" defer></script>
 </head>
 <body>
     <header>
