@@ -163,7 +163,7 @@ No se eliminan porque JS necesita un nodo DOM preexistente como punto de anclaje
 ## Validaciones
 
 | Tipo | Resultado |
-|---|---|---|
+|---|---|
 | HTML5 (W3C Nu) | 0 errores en todos los documentos |
 | CSS3 (W3C Jigsaw) | 0 errores en todas las hojas |
 | Contraste de color | AA y AAA superados |
