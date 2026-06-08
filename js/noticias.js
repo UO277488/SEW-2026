@@ -3,7 +3,7 @@ class Noticias {
     #url;
 
     constructor() {
-        this.#apiKey = "pub_68725bae69aa36d2c08a34a3ef92fafeb87ee";
+        this.#apiKey = "pub_1b2135cb947a4939b50ff0a92d91b3e2";
         this.#url = "https://newsdata.io/api/1/news";
     }
 
